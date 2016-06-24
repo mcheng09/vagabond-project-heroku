@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 
+gem 'ruby', '2.2.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
@@ -24,6 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
 # Authorization
 gem 'cancancan'
+
+gem 'rails_12factor'
 
 
 
