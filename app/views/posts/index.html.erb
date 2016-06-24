@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="card-panel">
+    <h4 class="card-panel green lighten-1 white-text">Recent Posts</h4>
+
+    <ul>
+      <li>
+        <% @posts.each do |post| %>
+          <%= link_to(post.title, city_post_path(@city.id, post.id)) %><br>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>  
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>

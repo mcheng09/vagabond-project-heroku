@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vagabond App</title>
+    <!-- CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+
+    <!-- JAVASCRIPTS -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+
+  </head>
+
+  <body class="grey lighten-2">
+    <nav class="grey darken-4">
+      <div class="navbar-wrapper container">
+        <a href="/" class ="brand-logo class green-text"><strong>VAGABOND</strong></a>
+
+        <ul class="right">
+        <% if session[:user_id].nil? %>
+
+          <li><%= link_to "User Login", signin_path %></li>
+          <li><%= link_to "Sign Up", new_user_path %></li>
+
+        <% else %>
+
+          <li><%= link_to "Profile", user_path(current_user[:id]) %></li>
+          <li><%= link_to "Log Out", logout_path, method: "delete" %></li>
+
+        <% end %>
+      </ul>
+
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row cities">
+        <div class="col s12">
+          <ul class="collapsible" data-collapsible="accordion">
+            <li>
+              <div class="collapsible-header"><i class="material-icons indigo-text text-accent-3">location_on</i>Cities
+              </div>
+              <div class="collapsible-body center-align" id="cities">
+                <a class="btn indigo accent-3 white-text cities" href="/cities/1">San Francisco</a>
+                <a class="btn indigo accent-3 white-text cities" href="/cities/2">London</a>
+                <a class="btn indigo accent-3 white-text cities" href="/cities/3">Gibraltar</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <% flash.each do |name, msg| %>
+      <div class="errormsg">
+        <%= msg %>
+      </div>
+      <% end %>
+    </div>
+
+  <%= yield %>
+
+  </body>
+
+</html>

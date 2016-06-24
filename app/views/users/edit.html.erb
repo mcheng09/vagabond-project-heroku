@@ -1,0 +1,26 @@
+<div class="container">
+  <%= form_for @user do |f| %>
+
+  <div>
+   <%= f.file_field :avatar %>
+  </div>
+  <div>
+  <%= f.text_field :first_name, placeholder: "First Name" %>
+  </div>
+  <div>
+  <%= f.text_field :last_name, placeholder: "Last Name" %>
+  </div>
+  <div>
+  <%= f.text_field :email, placeholder: "Email" %>
+  </div>
+  <div>
+    <%= f.text_field :location, placeholder: "Location" %>
+  </div>
+  <br>
+  <%= f.submit "Update Profile" %>
+
+  <% end %>
+
+</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>

@@ -1,0 +1,20 @@
+<div class="container">
+  <%= form_for @cities do |f| %>
+
+  <div>
+   <%= f.file_field :avatar %>
+  </div>
+  <div>
+    <%= f.text_field :name, placeholder: "Name" %>
+  </div>
+  <div>
+    <%= f.text_field :description, placeholder: "Description" %>
+  </div>
+
+  <br>
+    <%= f.submit "Create Post" %>
+  <br>
+
+  <% end %>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>

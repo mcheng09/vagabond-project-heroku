@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="card-panel">
+
+
+  <div class="row">
+    <div class="col l4">
+      <h4><%= @user.first_name %>'s Profile</h4>
+      <div class="responsive-img">
+        <%= image_tag(@user.avatar, :class => "profile-pic")%></img>
+      </div>
+      <div>
+        <strong>Name: </strong><%= @user.first_name %> <%= @user.last_name %>
+      </div>
+      <div>
+        <strong>Email: </strong> <%= @user.email %>
+      </div>
+      <div>
+        <strong>Location: </strong> <%= @user.location %>
+      </div>
+      <div>
+        <strong>User Since: </strong> <%= @user.created_at.strftime("%b %d, %Y") %>
+      </div>
+      <br>
+
+    </div>
+
+    <div class="col l8">
+      <br>
+      <% if current_user.id == @user.id %>
+      <div class="button white-text right">
+        <a href='/users/<%= @user.id %>/edit' class="button-link">Edit Profile</a>
+      </div>
+      <% end %><br>
+      <br>
+     <h5>Recent Posts:</h5>
+     <div class="card-panel">
+        <% @posts.each do |post| %>
+      </br><div class="postcontainer">
+        <div class="titlelabel">
+          <strong><a href="/cities/<%= post.city_id %>/posts/<%= post.id %>"><%= post.title %></a></strong></div>
+          <strong>Posted in: </strong><a href="/cities/<%= post.city_id %>"> <%= post.city.name %></a></br></br>
+          <%= truncate(post.description, :length => 1000) %> <a href="/cities/<%= post.city_id %>/posts/<%= post.id %>">See More...</a></br></br>
+          <div class="postingdate">
+            <label>Posted on: </label><%= post.created_at.strftime("%b %d, %Y") %></br>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>

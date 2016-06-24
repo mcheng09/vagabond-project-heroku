@@ -1,0 +1,33 @@
+
+<div class="container">
+  <div class="card-panel">
+    <div class="header card-panel green lighten-1 content white-text">
+      <h4><%= @post.title %></h4>
+      <p>
+        <i class="tiny material-icons">perm_identity</i><strong><a class="blue-text text-darken-3" href="/users/<%= @post.user_id %>"> <%= @post.user.first_name %> <%= @post.user.last_name %></a><br>
+
+        <i class="material-icons">location_on</i><a class="blue-text text-darken-3" href="/cities/<%= @post.city_id %>"> <%= @post.city.name %> </a></br>
+        <%= @post.created_at.strftime("%b %d, %Y") %></strong>
+      </p>
+    </div>
+    <p class="flow-text white black-text">
+      <%= @post.description %>
+    </p>
+
+  <% if can? :manage, @post %>
+
+    <div>
+      <form action='/posts/<%= @post.id %>/edit' method='get'>
+        <button> Edit Post </button>
+      </form>
+    </div>
+
+    <%= button_to "Delete Post", city_post_path(@post.city.id, @post.id), method: :delete, :data => {:confirm => @confirm_msg} %>
+
+  </div>
+
+  <% end %>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>

@@ -1,0 +1,9 @@
+Hello World! Cities Go Here. </br>
+
+<% @city.each do |city| %>
+  <a href="/cities/<%= city.id %>">
+    <%= city.name %> </br>
+  </a>
+<% end %>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>

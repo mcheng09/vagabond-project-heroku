@@ -1,0 +1,28 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.profile-pic {
+  max-width: 250px;
+  max-height: 350px;
+  margin-right: 100px;
+}
+.button-link {
+  color: white;
+}
+
+.postcontainer {
+  border-bottom: 2px dashed black;
+}
+
+.postingdate {
+  text-align: right
+}
+
+.titlelabel {
+  font-size: 30px;
+}
+
+a {
+  color: #3d5afe;
+}

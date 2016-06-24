@@ -1,0 +1,17 @@
+<div class="card-panel">
+<%= form_for @post do |f| %>
+  <h4 class="card-panel green lighten-1 white-text">Edit Post</h4>
+  <div>
+    <h5>Title:</h5>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <h5>Description:</h5>
+    <%= f.text_field :description %>
+  </div>
+
+  <br>
+  <%= f.submit "Update Post" %>
+</div>
+<% end %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
